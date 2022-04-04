@@ -4,6 +4,7 @@ public class Lesson_2_GitHub {
 
         System.out.println("First program");
         System.out.println("Release1 comment");
+        System.out.println("Comment conflict");
     }
 
 }
