@@ -28,9 +28,6 @@ public class StudentRegistrationFormTests extends TestBase {
                                           text("Music"),
                                           text("Test Address"));
 
-
-
-
     }
 
 }

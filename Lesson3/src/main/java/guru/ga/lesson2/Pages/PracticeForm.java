@@ -31,15 +31,6 @@ public class PracticeForm extends BasePages{
       setStateCity("Haryana", "Panipat");
 
 
-
-
-        //.setValue(new Date().toString());
-
-//        $("input#hobbies-checkbox-1").;
-        $("textarea#currentAddress").setValue("Test Address");
-
-
-
         return page(PracticeForm.class);
     }
 

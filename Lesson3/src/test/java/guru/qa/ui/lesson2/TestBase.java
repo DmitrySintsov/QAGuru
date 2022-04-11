@@ -1,9 +1,7 @@
 package guru.qa.ui.lesson2;
 
-import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 
-import com.codeborne.selenide.*;
 import com.codeborne.selenide.Configuration;
 
 public class TestBase {
