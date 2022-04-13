@@ -1,9 +1,17 @@
-package com.demoqa.Pages;
+package com.demoqa.ui.Pages;
 
+import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.Selenide;
+import com.codeborne.selenide.SelenideElement;
+import com.demoqa.ui.Helpers.Dates;
+import com.demoqa.ui.Models.Student;
+import org.apache.commons.lang3.time.DateUtils;
 import org.openqa.selenium.By;
 
+import java.util.List;
+
 import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Selectors.byId;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
@@ -16,21 +24,24 @@ public class PracticeForm extends BasePages{
 
     }
 
-    public PracticeForm fillForm() {
+    public PracticeForm fillForm(Student user) {
 
-      setFristName("Ivan");
-      setLastName("Ivanov");
-      setUserEmail("User@mail.com");
-      setGender("Male");
-      setMobile("1234567890");
-      setBirthDate("03","January","2000");
-      setSubject("English");
-      setHobbies("Music");
+      setFristName(user.getFirstName());
+      setLastName(user.getLastName());
+      setUserEmail(user.getEmail());
+      setGender(user.getGender());
+      setMobile(user.getMobile());
+      //setBirthDate("03","January","2000");
+        setBirthDate(Integer.toString(new Dates().getMonthDate(user.getBirthday())),
+                     new Dates().getMonth(user.getBirthday()),
+                     Integer.toString(new Dates().getYear(user.getBirthday())));
+      setSubject(user.getSubjects());
+      setHobbies(user.getHobbies());
       setPictureFromFile("test.png");
-      setCurrentAddress("Test Address");
-      setStateCity("Haryana", "Panipat");
+      setCurrentAddress(user.getAddress());
+      setStateCity(user.getState(), "Panipat");
 
-
+        System.out.println("");
         return page(PracticeForm.class);
     }
 
@@ -40,7 +51,7 @@ public class PracticeForm extends BasePages{
         $("div#stateCity-wrapper").$(byText(state)).click();
 
         $("div#city").scrollIntoView(true).click();
-        $("div#stateCity-wrapper").$(byText(city)).click();
+        $("div#stateCity-wrapper").$(byId("0")).click();
 
     }
 
@@ -104,21 +115,29 @@ public class PracticeForm extends BasePages{
         $("input#dateOfBirthInput").click();
         $("select.react-datepicker__month-select").selectOption(month);
         $("select.react-datepicker__year-select") .selectOption(year);
-        $(".react-datepicker__day--0"+day+":not(.react-datepicker__day--outside-month").click();
+        $(".react-datepicker__day--0"+day+":not(.react-datepicker__day--outside-month").scrollIntoView(true).click();
 
     }
 
-    private void setSubject(String value) {
+    private void setSubject(List<String> value) {
 
-        $("input#subjectsInput").setValue(value).pressEnter();
+        SelenideElement subject = $("input#subjectsInput");
+
+        for(String sub : value) {
+            subject.setValue(sub).pressEnter();
+        }
 
     }
 
-    private void setHobbies(String value) {
+    private void setHobbies(List<String> value) {
 
-        $$(By.cssSelector("label[for^=hobbies-checkbox]"))
-                .findBy(text(value))
-                .click();
+        ElementsCollection hobbies = $$(By.cssSelector("label[for^=hobbies-checkbox]"));
+
+        for(String hobby:value) {
+                 hobbies
+                         .findBy(text(hobby))
+                         .click();
+        }
 
     }
 

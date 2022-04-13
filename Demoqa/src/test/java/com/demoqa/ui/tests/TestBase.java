@@ -1,4 +1,4 @@
-package com.demoqa.ui;
+package com.demoqa.ui.tests;
 
 import org.junit.jupiter.api.BeforeAll;
 
