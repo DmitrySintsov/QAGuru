@@ -1,8 +1,8 @@
 package com.demoqa.ui.tests;
 
-import com.demoqa.ui.Forms.SubmitModalForm;
-import com.demoqa.ui.Models.Student;
-import com.demoqa.ui.Pages.PracticeForm;
+import com.demoqa.ui.forms.SubmitModalForm;
+import com.demoqa.ui.models.Student;
+import com.demoqa.ui.pages.PracticeForm;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.text;

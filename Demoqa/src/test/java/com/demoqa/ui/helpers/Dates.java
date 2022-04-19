@@ -1,4 +1,4 @@
-package com.demoqa.ui.Helpers;
+package com.demoqa.ui.helpers;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
