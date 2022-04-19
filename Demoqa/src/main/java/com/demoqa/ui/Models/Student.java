@@ -21,6 +21,9 @@ public class Student {
     private List<String> subjects,
                      hobbies;
 
+    private enum subjects {Maths, Accounting, Arts, Biology, Chemistry, Commerce, English, Economics, Hindi, Physics}
+    private enum states {NCR, Haryana, Rajasthan};
+    private enum hobbies { Music, Sports, Reading}
 
     public String getFirstName() {
         return firstName;
