@@ -1,10 +1,11 @@
 package ru.dominospizza.ui.tests;
 
 import com.codeborne.selenide.Condition;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
-import ru.dominospizza.ui.pages.components.Basket;
+import ru.dominospizza.ui.pages.Cart;
 import ru.dominospizza.ui.pages.HalvesPizza;
 
 public class HalvesSelectionTests extends TestBase {
@@ -26,11 +27,21 @@ public class HalvesSelectionTests extends TestBase {
                 .selectHalvesPizza(size,dough,pizza1,pizza2)
                 .addToBasket();
 
-        new Basket()
+        new Cart()
                 .open()
+                .product(0)
                 .shouldHave(Condition.text(pizza1 +" + "+pizza2));
 
-        new Basket().delete();
+
+    }
+
+    @AfterEach
+    @DisplayName("Удаляем товар из корзины")
+    public void clearCart() {
+
+        new Cart()
+                .deletePosition(0);
+
     }
 
 }
