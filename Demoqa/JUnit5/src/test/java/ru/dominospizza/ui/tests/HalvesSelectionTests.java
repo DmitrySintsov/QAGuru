@@ -1,5 +1,6 @@
 package ru.dominospizza.ui.tests;
 
+import com.codeborne.selenide.Condition;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -13,7 +14,7 @@ public class HalvesSelectionTests extends TestBase {
     @ParameterizedTest
     @CsvSource({
             "28,Тонкое,Жюльен,Хот-дог",
-            "28,Классическое,Пепперони,Гавайская",
+            "28,Классическое,Пепперони по-деревенски,Гавайская",
             "33,Тонкое,Маргарита,Мясная",
             "33,Классическое,Хот-дог,Диабло"
 
@@ -27,9 +28,9 @@ public class HalvesSelectionTests extends TestBase {
 
         new Basket()
                 .open()
-                .shouldHave();
+                .shouldHave(Condition.text(pizza1 +" + "+pizza2));
 
-
+        new Basket().delete();
     }
 
 }

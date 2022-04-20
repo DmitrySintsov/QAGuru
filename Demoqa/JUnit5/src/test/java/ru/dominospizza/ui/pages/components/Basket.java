@@ -15,4 +15,11 @@ public class Basket {
 
         return basketContainer;
     }
+
+    public SelenideElement delete() {
+
+        basketContainer.$("button[data-testid*='decrease']").click();
+
+        return basketContainer;
+    }
 }
