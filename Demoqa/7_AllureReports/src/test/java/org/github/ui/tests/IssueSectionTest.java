@@ -1,5 +1,6 @@
 package org.github.ui.tests;
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.DisplayName;
@@ -28,8 +29,8 @@ public class IssueSectionTest {
         $(By.linkText("DmitrySintsov/QAGuru")).click();
         $(By.partialLinkText("Issues")).click();
 
-        $(withText("Lesson7")).click();
 
+        $("#issue_3").shouldHave(Condition.text("Test Allure Name Issue"));
 
     }
 
