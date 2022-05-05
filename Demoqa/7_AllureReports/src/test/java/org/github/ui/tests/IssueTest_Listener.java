@@ -10,7 +10,7 @@ import org.openqa.selenium.By;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
-public class IssueSectionTest {
+public class IssueTest_Listener {
 
     @DisplayName("1. Проверка названия Issue. Чистый Selenide (с Listener)")
     @Test

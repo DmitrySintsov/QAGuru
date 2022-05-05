@@ -2,6 +2,7 @@ package org.github.ui.tests;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.logevents.SelenideLogger;
+import io.qameta.allure.Step;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -9,30 +10,39 @@ import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
+import static io.qameta.allure.Allure.step;
 
-public class IssueSectionTest {
+public class IssueTest_Lambda {
 
-    @DisplayName("1. Проверка названия Issue. Чистый Selenide (с Listener)")
+    @DisplayName("1. Проверка названия Issue. Лямбда шаги через step")
     @Test
 
     public void testIssueSectionName() {
 
         SelenideLogger.addListener("allure",new AllureSelenide());
 
-        open("https://github.com");
+        step("Открытие главной страницы",() -> {
+            open("https://github.com");
+        });
 
-        $(".header-search-input").click();
-        $(".header-search-input").setValue("DmitrySintsov/QAGuru");
-        $(".header-search-input").submit();
+        step("Поиск GitHub", () -> {
+            $(".header-search-input").click();
+            $(".header-search-input").setValue("DmitrySintsov/QAGuru");
+            $(".header-search-input").submit();
+        });
 
-        $(By.linkText("DmitrySintsov/QAGuru")).click();
-        $(By.partialLinkText("Issues")).click();
+        step("Выбор найденного репозитария", () -> {
+            $(By.linkText("DmitrySintsov/QAGuru")).click();
+        });
 
+        step("Переход в Issues",()-> {
+            $(By.partialLinkText("Issues")).click();
+        });
 
-        $("#issue_3").shouldHave(Condition.text("Test Allure Name Issue"));
+        step("Проверка названия Issue", ()-> {
+            $("#issue_3").shouldHave(Condition.text("Test Allure Name Issue"));
+        });
 
     }
-
-
 
 }
