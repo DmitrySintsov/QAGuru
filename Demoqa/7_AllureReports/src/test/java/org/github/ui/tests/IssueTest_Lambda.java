@@ -7,7 +7,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 
-import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
@@ -33,6 +32,7 @@ public class IssueSectionTest {
         $("#issue_3").shouldHave(Condition.text("Test Allure Name Issue"));
 
     }
+
 
 
 }
