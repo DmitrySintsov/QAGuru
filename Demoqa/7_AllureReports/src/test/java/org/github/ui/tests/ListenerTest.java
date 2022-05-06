@@ -27,11 +27,7 @@ public class ListenerTest {
         $(By.linkText("DmitrySintsov/QAGuru")).click();
         $(By.partialLinkText("Issues")).click();
 
-
         $("#issue_3").shouldHave(Condition.text("Test Allure Name Issue"));
 
     }
-
-
-
 }

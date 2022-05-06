@@ -7,18 +7,15 @@ import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.$;
 
-public class Repository {
+public class RepositoryPage {
 
     @Step("Переход в Issues")
-
-    public Repository goToIssues() {
+    public RepositoryPage goToIssues() {
         $(By.partialLinkText("Issues")).click();
         return this;
     }
 
-
     @Step ("Проверка названия Issue")
-
     public SelenideElement isCorrectIssueName(String issueName) {
 
         return $("#issue_3").shouldHave(Condition.text(issueName));

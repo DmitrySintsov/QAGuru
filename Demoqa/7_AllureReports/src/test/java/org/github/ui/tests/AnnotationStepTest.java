@@ -2,9 +2,9 @@ package org.github.ui.tests;
 
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
-import org.github.ui.pages.Main;
-import org.github.ui.pages.Repository;
-import org.github.ui.pages.Search;
+import org.github.ui.pages.MainPage;
+import org.github.ui.pages.RepositoryPage;
+import org.github.ui.pages.SearchPage;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -21,14 +21,14 @@ public class AnnotationStepTest {
         SelenideLogger.addListener("allure",new AllureSelenide());
         String repository = "DmitrySintsov/QAGuru";
 
-        new Main()
-                .openPage()
+        new MainPage()
+                .openPage("https://github.com")
                 .searchGitHub(repository);
 
-        new Search()
+        new SearchPage()
                 .select(repository);
 
-        new Repository()
+        new RepositoryPage()
                 .goToIssues()
                 .isCorrectIssueName("Test Allure Name Issue");
 

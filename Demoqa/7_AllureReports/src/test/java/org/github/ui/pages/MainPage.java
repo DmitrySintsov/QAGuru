@@ -5,12 +5,12 @@ import io.qameta.allure.Step;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
-public class Main {
+public class MainPage {
 
     @Step("Открытие главной страницы")
-     public Main openPage() {
+     public MainPage openPage(String page) {
 
-        open("https://github.com");
+        open(page);
         return this;
     }
 

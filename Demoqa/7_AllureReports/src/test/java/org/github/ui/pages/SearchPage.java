@@ -5,11 +5,11 @@ import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.$;
 
-public class Search {
+public class SearchPage {
 
     @Step ("Выбор найденного репозитария")
-
     public void select(String repo){
+
         $(By.linkText(repo)).click();
     };
 
