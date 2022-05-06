@@ -19,9 +19,9 @@ public class Repository {
 
     @Step ("Проверка названия Issue")
 
-    public SelenideElement issue() {
+    public SelenideElement isCorrectIssueName(String issueName) {
 
-        return $("#issue_3");
+        return $("#issue_3").shouldHave(Condition.text(issueName));
     }
 
 }

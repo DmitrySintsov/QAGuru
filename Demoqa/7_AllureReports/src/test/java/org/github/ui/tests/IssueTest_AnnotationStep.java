@@ -22,17 +22,18 @@ public class IssueTest_AnnotationStep {
     public void testIssueSectionName() {
 
         SelenideLogger.addListener("allure",new AllureSelenide());
+        String repository = "DmitrySintsov/QAGuru";
 
         new Main()
                 .openPage()
-                .searchGitHub("DmitrySintsov/QAGuru");
+                .searchGitHub(repository);
 
         new Search()
-                .select("DmitrySintsov/QAGuru");
+                .select(repository);
 
         new Repository()
                 .goToIssues()
-                .issue().shouldHave(Condition.text("Test Allure Name Issue"));
+                .isCorrectIssueName("Test Allure Name Issue");
 
     }
 
