@@ -19,6 +19,7 @@ public class CartTests extends TestBase{
                 .open("/halves-selection")
                 .selectHalvesPizza("28","Тонкое","Жюльен","Хот-дог")
                 .addToBasket();
+
     }
 
 
@@ -34,18 +35,8 @@ public class CartTests extends TestBase{
                 .increasePosition(0,count)
                 .productPrice(0).getText();
 
-//        new Cart()
-//                .decreasePosition(0,count);
-
-
-   //     System.out.println("total = " + Integer.parseInt(totalPrice.substring(0,totalPrice.indexOf(" "))));
-   //     System.out.println("first = " + Integer.parseInt(beginPrice.substring(0,beginPrice.indexOf(" "))));
-   //     System.out.println("must = "  + Integer.parseInt(beginPrice.substring(0,beginPrice.indexOf(" "))) * count);
-
         Assertions.assertEquals(Integer.parseInt(totalPrice.substring(0,totalPrice.indexOf(" "))),
                           Integer.parseInt(beginPrice.substring(0,beginPrice.indexOf(" "))) * count);
-
-
 
     }
 
@@ -57,5 +48,4 @@ public class CartTests extends TestBase{
                 .deletePosition(0);
 
     }
-
 }

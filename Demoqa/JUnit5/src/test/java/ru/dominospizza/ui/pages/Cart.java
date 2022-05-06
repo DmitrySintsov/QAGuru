@@ -18,7 +18,6 @@ public class Cart {
 
     public Cart decreasePosition(int position, int count) {
 
-
       while(count > 0) {
            cartContainer.$("button[data-testid$='"+position+"_decrease_button']").click();
            count--;
@@ -35,7 +34,6 @@ public class Cart {
             currentCount--;
         }
         return this;
-
     }
 
     public Cart increasePosition(int position, int count) {
@@ -44,14 +42,12 @@ public class Cart {
                 cartContainer.$("button[data-testid$='"+position+"_increase_button']").click();
                 count--;
         }
-
         return this;
     }
 
     public SelenideElement product(int position) {
 
           return cartContainer.$("div[data-testid$='"+position+"']");
-
     }
 
     public SelenideElement productPrice(int position) {
@@ -59,8 +55,4 @@ public class Cart {
         return cartContainer.$("div[data-testid$='"+position+"']")
                             .$("div[data-testid$='" + position + "_price']").shouldHave(Condition.enabled, Condition.visible );
     }
-
-
-
-
 }

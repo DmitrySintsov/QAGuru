@@ -25,13 +25,11 @@ public class HalvesPizza {
         selectPizza(pizza2);
         
         return this;
-
     }
 
     private void selectSize(String size) {
 
         $$("button[data-testid^='1_size']").findBy(text(size)).click();
-
     }
 
     private void selectDough(String dough) {
@@ -54,6 +52,5 @@ public class HalvesPizza {
                 .parent()
                 .scrollIntoView(false)
                 .click();
-
     }
 }

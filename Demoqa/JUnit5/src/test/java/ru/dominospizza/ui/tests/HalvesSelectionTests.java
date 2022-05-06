@@ -32,7 +32,6 @@ public class HalvesSelectionTests extends TestBase {
                 .product(0)
                 .shouldHave(Condition.text(pizza1 +" + "+pizza2));
 
-
     }
 
     @AfterEach
