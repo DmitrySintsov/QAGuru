@@ -18,7 +18,6 @@ public class HalvesSelectionTests extends TestBase {
             "28,Классическое,Пепперони по-деревенски,Гавайская",
             "33,Тонкое,Маргарита,Мясная",
             "33,Классическое,Хот-дог,Диабло"
-
     })
     public void testAddSelectedHalvesToBasket(String size, String dough, String pizza1, String pizza2) {
 
@@ -43,5 +42,4 @@ public class HalvesSelectionTests extends TestBase {
                 .deletePosition(0);
 
     }
-
 }

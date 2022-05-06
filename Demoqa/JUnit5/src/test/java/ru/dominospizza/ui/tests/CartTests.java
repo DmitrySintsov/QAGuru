@@ -21,7 +21,6 @@ public class CartTests extends TestBase{
                 .addToBasket();
     }
 
-
     @ParameterizedTest(name = "Проверка пересчета стоимости корзины при изменении кол-ва позиций на {0} шт")
     @ValueSource(ints = { 5, 8, 10 })
     public void testCartProductPrice(int count) {

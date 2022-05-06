@@ -10,11 +10,10 @@ import org.openqa.selenium.By;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
-public class IssueTest_Listener {
+public class ListenerTest {
 
-    @DisplayName("1. Проверка названия Issue. Чистый Selenide (с Listener)")
     @Test
-
+    @DisplayName("1. Проверка названия Issue. Чистый Selenide (с Listener)")
     public void testIssueSectionName() {
 
         SelenideLogger.addListener("allure",new AllureSelenide());
