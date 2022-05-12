@@ -11,6 +11,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/7_AllureReports" />
+            <option value="$PROJECT_DIR$/9_Selenide#1" />
             <option value="$PROJECT_DIR$/JUnit5" />
           </set>
         </option>
