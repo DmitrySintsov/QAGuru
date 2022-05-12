@@ -8,8 +8,6 @@ import org.github.ui.pages.SearchPage;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static com.codeborne.selenide.Selenide.sleep;
-
 public class JUnit5ExampleCodeTest {
 
     @Test

@@ -9,18 +9,15 @@ public class MainPage {
 
     @Step("Открытие главной страницы")
      public MainPage openPage(String page) {
-
         open(page);
         return this;
     }
 
     @Step("Поиск GitHub")
     public void searchGitHub(String github) {
-
         $(".header-search-input").click();
         $(".header-search-input").setValue(github);
         $(".header-search-input").submit();
 
     }
-
 }

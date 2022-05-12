@@ -18,7 +18,6 @@ public class RepositoryPage {
 
     @Step ("Проверка названия Issue")
     public SelenideElement isCorrectIssueName(String issueName) {
-
         return $("#issue_3").shouldHave(Condition.text(issueName));
     }
 
@@ -30,7 +29,6 @@ public class RepositoryPage {
 
     @Step("Поиск примера кода для JUnit5")
     public SelenideElement isPresent(String text) {
-
         return  $(".markdown-body").shouldBe(Condition.text(text));
     }
 

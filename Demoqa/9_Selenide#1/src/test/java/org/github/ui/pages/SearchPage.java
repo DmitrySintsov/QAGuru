@@ -11,6 +11,5 @@ public class SearchPage {
     public void select(String repo){
 
         $(By.linkText(repo)).click();
-    };
-
+    }
 }
